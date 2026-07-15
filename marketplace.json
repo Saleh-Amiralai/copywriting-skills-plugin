@@ -1,0 +1,16 @@
+{
+  "name": "copywriting-skills",
+  "owner": {
+    "name": "Saleh Amiralai"
+  },
+  "description": "A bundle of five marketing copywriting Skills for Claude Code.",
+  "version": "1.0.0",
+  "plugins": [
+    {
+      "name": "copywriting-skills",
+      "source": "./plugins/copywriting-skills",
+      "description": "Five portable Claude Skills for marketing copywriting: email marketing, landing pages, product launches, Meta ads, and social media (Instagram, LinkedIn, Threads/X).",
+      "version": "1.0.0"
+    }
+  ]
+}
