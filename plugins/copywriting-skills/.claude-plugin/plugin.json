@@ -1,7 +1,7 @@
 {
   "name": "copywriting-skills",
   "displayName": "Copywriting Skills",
-  "version": "1.0.0",
-  "description": "Five portable Claude Skills for marketing copywriting: email marketing, landing pages, product launches, Meta ads, and social media (Instagram, LinkedIn, Threads/X).",
-  "keywords": ["copywriting", "marketing", "email", "landing-page", "launch", "ads", "social-media"]
+  "version": "1.1.0",
+  "description": "Six portable Claude Skills for marketing copywriting: email marketing, landing pages, product launches, Meta ads, social media (Instagram, LinkedIn, Threads/X), plus a YouTube transcriber (via Apify) for repurposing video content.",
+  "keywords": ["copywriting", "marketing", "email", "landing-page", "launch", "ads", "social-media", "youtube", "transcription", "apify"]
 }
