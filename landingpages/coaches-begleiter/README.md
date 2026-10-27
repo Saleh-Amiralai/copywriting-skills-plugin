@@ -9,7 +9,7 @@ Eigenständige, animierte Landingpage (eine HTML-Datei, keine Build-Tools, keine
 ## Konzept
 
 - Leitgedanke aus dem Profil: *Entlastung ermöglichen und dabei die eigene Stimme und Selbstbestimmung bewahren.*
-- Bildwelt: heilende Hände, aus denen goldenes Licht wächst (Spross, Samen, Lebensbaum).
+- Bildwelt: zwei Frauenhände, die über die ganze Seite hinweg eine Bewegung vollziehen: offen und empfangend (Hero), Licht sammeln, ein goldener Spross, Licht weben, Linien ordnen sich zu einem Layout, im Footer entsteht zwischen den Händen ein leuchtender Rahmen mit der Website.
 - Tonalität: du-Form, ruhig, konkret, ohne Verkaufsdruck, ohne künstliche Verknappung (Profil-Punkte 04, 15, 16).
 - Aufbau: Hero · „Kennst du das?“ (Ich-Aussagen aus dem Profil als Laufband) · Leitgedanke mit drei Prinzipien · Ablauf in sechs Schritten · Leistung · „Du musst nicht fertig sein“ · Preisrahmen · Entscheidende Fragen (FAQ) · Erstgespräch mit Formular.
 
@@ -17,32 +17,39 @@ Eigenständige, animierte Landingpage (eine HTML-Datei, keine Build-Tools, keine
 
 | Rolle | Wert |
 |---|---|
-| Grund (Oxblood) | `#170507` / `#200a0e` |
-| Wein | `#4a0f18` / `#6a1623` |
+| Grund (Bordeaux) | `#2b0911` / `#36101a` |
+| Wein | `#5a1322` / `#7a1a2c` |
 | Rot-Akzent | `#c1272d` / `#e0404a` |
+| Amber-Licht | `#f0a24a` |
 | Gold | `#d8b04c` |
 | Gold hell | `#f3d98a` |
 | Gold dunkel | `#a9843a` |
-| Creme (Text) | `#f4e8d6` |
-| Gedämpft (Fließtext) | `#cdb9a3` |
+| Creme (Text) | `#f6ebda` |
+| Gedämpft (Fließtext) | `#d6c1a9` |
+| Glas-Panels | `rgba(38,8,15,.66)` |
 
 Schriften: Cormorant Garamond (Display) und Manrope (Fließtext), geladen über Google Fonts.
 
 ## Bewegung und Interaktion
 
-- Wortweise Headline-Animation, aufsteigende Goldpartikel aus den Händen, Maus-Parallaxe im Hero.
+- Scroll-gesteuertes Video: Ein 25-Sekunden-Video der Hände liegt fix im Hintergrund (`.bg-video`). Der Scrollfortschritt der Seite steuert die Abspielposition (weich geglättet per `requestAnimationFrame`). Oben: offene Hände. Unten im Footer: der leuchtende Website-Rahmen. Das Video ist mit einem Keyframe alle 12 Frames kodiert, damit das Springen beim Scrollen flüssig bleibt.
+- Alle Textgruppen liegen in halbtransparenten Glas-Panels (`.panel`), damit die Hände sichtbar bleiben und der Text lesbar ist.
+- Wortweise Headline-Animation, aufsteigende Goldpartikel, Maus-Parallaxe im Hero.
 - Laufband mit Zitaten (pausiert bei Hover), Scroll-Reveal für alle Abschnitte.
 - Goldene Ranke, die sich beim Scrollen entlang der Ablauf-Schritte zeichnet.
-- Magnetische Buttons, Karten mit Licht-Hover, Bild-Enthüllung per Clip-Path, atmendes Lebensbaum-Bild.
+- Magnetische Buttons, Karten mit Licht-Hover.
 - `prefers-reduced-motion` wird respektiert.
 
-## Bilder
+## Bilder und Video
 
-Die drei Bilder wurden mit Higgsfield (GPT Image 2.5) erzeugt und sind aktuell per URL vom Higgsfield-CDN eingebunden. Für den Live-Betrieb die Dateien herunterladen, als WebP speichern und lokal einbinden:
+Alle Motive wurden mit Higgsfield erzeugt: sechs Schlüsselbilder (GPT Image 2.5, das erste Bild als Referenz für alle weiteren) und daraus fünf Clips mit Kling 3.0 (Start- und Endbild je Clip, je 5 Sekunden), per ffmpeg zu einem Video zusammengeschnitten (1280×720, 25 s, 3,8 MB).
 
-- Hero (3:2): Hände mit goldenem Spross
-- Ablauf (21:9): Lebensbaum aus Händen
-- Anfangen (4:5): Hand mit goldenem Samen
+Aktuell per URL vom Higgsfield-CDN eingebunden:
+
+- Video: `.bg-video` (Hintergrund, scroll-gesteuert)
+- Poster: Schlüsselbild 1 (offene Hände), wird gezeigt, bis das Video geladen ist
+
+Für den Live-Betrieb beide Dateien herunterladen und lokal einbinden. Hinweis: Auf iOS Safari ist das Scrubben von Hintergrundvideos nicht immer zuverlässig; dort bleibt im Zweifel das Poster stehen.
 
 ## Platzhalter
 
