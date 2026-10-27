@@ -42,6 +42,9 @@ section{position:relative;padding:120px 0}
 /* fixed hands video layer */
 .bg{position:fixed;inset:0;z-index:0;overflow:hidden;background:var(--ground)}
 .bg video,.bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 60%}
+.bg-still{opacity:0;will-change:opacity}
+.bg-video{opacity:0;transition:opacity .9s ease}
+.bg-video.on{opacity:1}
 .bg-shade{position:absolute;inset:0;background:
   radial-gradient(60% 50% at 50% 62%,rgba(43,9,17,0) 0%,rgba(43,9,17,.25) 60%,rgba(43,9,17,.7) 100%),
   linear-gradient(180deg,rgba(43,9,17,.55) 0%,rgba(43,9,17,.25) 35%,rgba(43,9,17,.25) 70%,rgba(43,9,17,.75) 100%)}
@@ -213,9 +216,13 @@ footer a:hover{color:var(--gold2)}
 <div class="progress" aria-hidden="true"></div>
 
 <div class="bg" aria-hidden="true">
-  <video class="bg-video" muted playsinline preload="auto" poster="https://d8j0ntlcm91z4.cloudfront.net/user_3Elh9CRMLHJI8SbM9ck8Sw0XJXX/hf_20261027_124745_e77e2f43-305d-4150-a25a-d46bf984a579.png">
-    <source src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Elh9CRMLHJI8SbM9ck8Sw0XJXX/5626cf85-15ef-47d3-a19c-25364d70bee5.mp4" type="video/mp4">
-  </video>
+  <img class="bg-still" src="assets/hands-1.webp" alt="">
+  <img class="bg-still" src="assets/hands-2.webp" alt="">
+  <img class="bg-still" src="assets/hands-3.webp" alt="">
+  <img class="bg-still" src="assets/hands-4.webp" alt="">
+  <img class="bg-still" src="assets/hands-5.webp" alt="">
+  <img class="bg-still" src="assets/hands-6.webp" alt="">
+  <video class="bg-video" muted playsinline preload="auto" poster="assets/hands-1.webp" src="assets/hands-video.mp4"></video>
   <div class="bg-shade"></div>
   <div class="bg-warm"></div>
 </div>
@@ -541,14 +548,23 @@ footer a:hover{color:var(--gold2)}
   var hero=d.querySelector('.hero');
   if(hero&&!reduce){hero.addEventListener('mousemove',function(e){var r=hero.getBoundingClientRect();hero.style.setProperty('--mx',((e.clientX-r.left)/r.width-.5)*2);hero.style.setProperty('--my',((e.clientY-r.top)/r.height-.5)*2);});hero.addEventListener('mouseleave',function(){hero.style.setProperty('--mx',0);hero.style.setProperty('--my',0);});}
   var bar=d.querySelector('.progress'),vine=d.querySelector('.vine path'),steps=d.querySelector('.steps');
-  var video=d.querySelector('.bg-video'),progress=0,shown=0,ready=false,raf=null;
-  if(video){video.addEventListener('loadedmetadata',function(){ready=true;try{video.pause();video.currentTime=0;}catch(err){}});video.load();}
+  var video=d.querySelector('.bg-video'),stills=d.querySelectorAll('.bg-still'),progress=0,shown=0,ready=false,raf=null;
+  var touch=w.matchMedia&&w.matchMedia('(hover: none)').matches,useVideo=!!video&&!touch&&!reduce;
+  if(video){
+    if(!useVideo){video.removeAttribute('src');video.removeAttribute('poster');try{video.load();}catch(err){}}
+    else{
+      video.addEventListener('loadedmetadata',function(){ready=true;try{video.pause();video.currentTime=0;}catch(err){}});
+      video.addEventListener('loadeddata',function(){video.classList.add('on');});
+      video.addEventListener('error',function(){useVideo=false;video.classList.remove('on');});
+      try{video.load();}catch(err){}
+    }
+  }
+  function paintStills(p){var n=stills.length;if(!n)return;var x=p*(n-1);for(var i=0;i<n;i++){var o=1-Math.abs(x-i);stills[i].style.opacity=o<0?0:o;}}
   function scrub(){
     raf=null;
-    if(!ready||!video.duration)return;
     shown+=(progress-shown)*0.14;
-    var t=shown*(video.duration-0.05);
-    if(Math.abs(video.currentTime-t)>0.02){try{video.currentTime=t;}catch(err){}}
+    paintStills(shown);
+    if(useVideo&&ready&&video.duration){var t=shown*(video.duration-0.05);if(Math.abs(video.currentTime-t)>0.02){try{video.currentTime=t;}catch(err){}}}
     if(Math.abs(progress-shown)>0.0005)raf=w.requestAnimationFrame(scrub);
   }
   function onScroll(){

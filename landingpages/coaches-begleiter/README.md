@@ -44,12 +44,10 @@ Schriften: Cormorant Garamond (Display) und Manrope (Fließtext), geladen über 
 
 Alle Motive wurden mit Higgsfield erzeugt: sechs Schlüsselbilder (GPT Image 2.5, das erste Bild als Referenz für alle weiteren) und daraus fünf Clips mit Kling 3.0 (Start- und Endbild je Clip, je 5 Sekunden), per ffmpeg zu einem Video zusammengeschnitten (1280×720, 25 s, 3,8 MB).
 
-Aktuell per URL vom Higgsfield-CDN eingebunden:
+Alle Dateien liegen lokal unter `assets/`:
 
-- Video: `.bg-video` (Hintergrund, scroll-gesteuert)
-- Poster: Schlüsselbild 1 (offene Hände), wird gezeigt, bis das Video geladen ist
-
-Für den Live-Betrieb beide Dateien herunterladen und lokal einbinden. Hinweis: Auf iOS Safari ist das Scrubben von Hintergrundvideos nicht immer zuverlässig; dort bleibt im Zweifel das Poster stehen.
+- `hands-video.mp4`: Hintergrundvideo, scroll-gesteuert (Desktop)
+- `hands-1.webp` bis `hands-6.webp`: die sechs Schlüsselbilder. Sie liegen immer unter dem Video und blenden beim Scrollen weich ineinander über. Auf Touch-Geräten und bei `prefers-reduced-motion` wird das Video gar nicht geladen und nur die Bilder werden verwendet. `hands-1.webp` ist zugleich das Poster.
 
 ## Platzhalter
 
