@@ -1,0 +1,545 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Websites für Menschen, die begleiten</title>
+<meta name="description" content="Websites für Coaches, Beraterinnen und Begleiter: ein klarer Auftritt, der deine Haltung trägt, die richtigen Menschen anspricht und dich von der Technik entlastet.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ground:#170507;--ground2:#200a0e;--wine:#4a0f18;--wine2:#6a1623;
+  --red:#c1272d;--red2:#e0404a;--gold:#d8b04c;--gold2:#f3d98a;--gold3:#a9843a;
+  --cream:#f4e8d6;--muted:#cdb9a3;--line:rgba(216,176,76,.22);--line2:rgba(216,176,76,.55);
+  --mx:0;--my:0;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ground);color:var(--cream);font-family:Manrope,system-ui,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,.serif{font-family:"Cormorant Garamond",Georgia,serif;font-weight:500;line-height:1.08;margin:0;letter-spacing:-.005em}
+p{margin:0}
+a{color:var(--gold2)}a:hover{color:var(--gold)}
+img{display:block;max-width:100%}
+.wrap{width:min(1180px,calc(100% - 48px));margin:0 auto}
+.eyebrow{font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);font-weight:700;display:flex;align-items:center;gap:12px}
+.eyebrow::before{content:"";width:28px;height:1px;background:var(--gold)}
+.lead{font-size:clamp(17px,1.4vw,20px);color:var(--muted);max-width:620px}
+.h2{font-size:clamp(38px,5vw,68px)}
+.h3{font-size:clamp(26px,2.4vw,34px)}
+.gold{color:var(--gold2)}
+.it{font-style:italic}
+section{position:relative;padding:120px 0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 30px;border-radius:999px;font-weight:700;font-size:15px;min-height:54px;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s,background .35s,border-color .35s;will-change:transform}
+.btn-gold{background:linear-gradient(135deg,var(--gold2),var(--gold) 60%,var(--gold3));color:#2a0a0e;box-shadow:0 10px 40px rgba(216,176,76,.22)}
+.btn-gold:hover{box-shadow:0 16px 50px rgba(216,176,76,.4);color:#2a0a0e}
+.btn-ghost{border-color:var(--line2);color:var(--cream)}
+.btn-ghost:hover{background:rgba(216,176,76,.08);color:var(--cream)}
+.btn svg{width:18px;height:18px}
+
+/* progress + nav */
+.progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--red),var(--gold));z-index:60;transition:width .1s linear}
+.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);background:rgba(23,5,7,.55);border-bottom:1px solid rgba(216,176,76,.12)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:76px}
+.brand{display:flex;align-items:center;gap:12px;color:var(--cream);text-decoration:none;font-family:"Cormorant Garamond",serif;font-size:22px;font-weight:600;letter-spacing:.02em}
+.brand-mark{width:30px;height:30px;border-radius:50%;background:radial-gradient(circle at 35% 35%,var(--gold2),var(--gold) 55%,var(--red) 120%);box-shadow:0 0 24px rgba(216,176,76,.5);animation:pulse 4s ease-in-out infinite}
+.nav-links{display:flex;gap:30px;list-style:none;margin:0;padding:0}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:600;letter-spacing:.04em;transition:color .3s}
+.nav-links a:hover{color:var(--gold2)}
+.nav .btn{padding:12px 22px;min-height:46px;font-size:14px}
+
+/* hero */
+.hero{min-height:900px;display:flex;align-items:center;padding:60px 0 100px;overflow:hidden;isolation:isolate}
+.hero-media{position:absolute;inset:0;z-index:-2;overflow:hidden}
+.hero-img{width:100%;height:100%;object-fit:cover;object-position:center 70%;transform:translate(calc(var(--mx)*14px),calc(var(--my)*10px)) scale(1.08);transition:transform .6s cubic-bezier(.2,.7,.2,1);filter:saturate(1.05)}
+.hero-shade{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(23,5,7,.78) 0%,rgba(23,5,7,.35) 45%,rgba(23,5,7,.15) 70%,rgba(23,5,7,.95) 100%)}
+.hero-copy{position:relative;text-align:center;margin:0 auto;max-width:980px;transform:translate(calc(var(--mx)*-10px),calc(var(--my)*-6px));transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.hero .eyebrow{justify-content:center;margin-bottom:28px;opacity:0;animation:fadeUp 1s .2s forwards}
+.hero .eyebrow::before{display:none}
+.hero h1{font-size:clamp(46px,7.4vw,112px);line-height:1.02;text-wrap:balance}
+.h-word{display:inline-block;opacity:0;transform:translateY(34px) rotate(1.5deg);animation:wordIn 1s cubic-bezier(.2,.7,.2,1) forwards;animation-delay:calc(.35s + var(--i)*80ms);will-change:transform,opacity}
+.hero .lead{margin:30px auto 0;max-width:640px;opacity:0;animation:fadeUp 1s 1.1s forwards}
+.hero-cta{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:42px;opacity:0;animation:fadeUp 1s 1.35s forwards}
+.hero-note{margin-top:22px;font-size:13px;color:var(--muted);letter-spacing:.04em;opacity:0;animation:fadeUp 1s 1.6s forwards}
+.particles{position:absolute;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.particles span{position:absolute;left:50%;bottom:22%;width:var(--s,4px);height:var(--s,4px);border-radius:50%;background:var(--gold2);box-shadow:0 0 10px 2px rgba(243,217,138,.55);opacity:0;animation:rise var(--t,8s) linear infinite;animation-delay:var(--d,0s)}
+.scroll-hint{position:absolute;left:50%;bottom:36px;transform:translateX(-50%);width:26px;height:42px;border:1px solid var(--line2);border-radius:14px;opacity:.8}
+.scroll-hint::after{content:"";position:absolute;left:50%;top:8px;width:4px;height:8px;margin-left:-2px;border-radius:2px;background:var(--gold2);animation:hint 2s ease-in-out infinite}
+
+/* marquee */
+.pain{padding-top:110px;background:linear-gradient(180deg,var(--ground),var(--ground2))}
+.marquee{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);padding:10px 0}
+.track{display:flex;gap:22px;width:max-content;animation:scroll 60s linear infinite}
+.track.rev{animation-direction:reverse;animation-duration:70s}
+.marquee:hover .track{animation-play-state:paused}
+.quote{flex:0 0 auto;max-width:440px;padding:22px 28px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.025);font-family:"Cormorant Garamond",serif;font-size:23px;line-height:1.3;color:var(--cream);transition:border-color .4s,background .4s}
+.quote:hover{border-color:var(--line2);background:rgba(216,176,76,.06)}
+.quote em{color:var(--gold2);font-style:normal}
+.pain-text{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:end;margin-bottom:60px}
+.pain-text .lead{max-width:none}
+
+/* principles */
+.principles{background:var(--ground2)}
+.big-quote{font-size:clamp(30px,4.2vw,58px);line-height:1.15;max-width:980px;margin:36px 0 70px;text-wrap:balance}
+.big-quote .gold{position:relative}
+.big-quote .gold::after{content:"";position:absolute;left:0;right:0;bottom:4px;height:2px;background:linear-gradient(90deg,var(--gold),transparent);transform:scaleX(0);transform-origin:left;transition:transform 1.4s cubic-bezier(.2,.7,.2,1) .4s}
+.in .big-quote .gold::after,.big-quote.in .gold::after{transform:scaleX(1)}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.card{position:relative;background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,0));border:1px solid var(--line);border-radius:20px;padding:36px 32px;transition:transform .55s cubic-bezier(.2,.7,.2,1),border-color .55s,box-shadow .55s;overflow:hidden}
+.card::before{content:"";position:absolute;inset:0;background:radial-gradient(600px circle at var(--cx,50%) var(--cy,0%),rgba(216,176,76,.14),transparent 45%);opacity:0;transition:opacity .5s}
+.card:hover{transform:translateY(-8px);border-color:rgba(216,176,76,.55);box-shadow:0 30px 70px rgba(193,39,45,.18)}
+.card:hover::before{opacity:1}
+.card .num{font-family:"Cormorant Garamond",serif;font-size:54px;line-height:1;color:var(--gold);opacity:.9}
+.card h3{margin:18px 0 12px}
+.card p{color:var(--muted);font-size:15.5px}
+.icon{width:44px;height:44px;border-radius:12px;border:1px solid var(--line2);display:grid;place-items:center;color:var(--gold2);margin-bottom:22px}
+.icon svg{width:22px;height:22px}
+
+/* process */
+.process{padding:0;background:var(--ground)}
+.process-media{position:absolute;inset:0;overflow:hidden}
+.tree-bg{width:100%;height:100%;object-fit:cover;object-position:center;animation:breathe 14s ease-in-out infinite alternate;filter:saturate(1.05)}
+.process-shade{position:absolute;inset:0;background:linear-gradient(180deg,var(--ground) 0%,rgba(23,5,7,.72) 18%,rgba(23,5,7,.78) 82%,var(--ground) 100%)}
+.process .wrap{position:relative;padding:150px 0 140px}
+.process-head{max-width:720px;margin-bottom:80px}
+.steps{position:relative;display:grid;grid-template-columns:80px 1fr;column-gap:40px}
+.vine{grid-column:1;grid-row:1 / span 7;width:80px;height:100%;overflow:visible}
+.vine path{fill:none;stroke:var(--gold);stroke-width:1.6;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;filter:drop-shadow(0 0 6px rgba(216,176,76,.6));transition:stroke-dashoffset .2s linear}
+.step{grid-column:2;display:grid;grid-template-columns:72px 1fr;gap:26px;padding:34px 0;border-top:1px solid var(--line);align-items:start}
+.step:first-of-type{border-top:0}
+.step .n{font-family:"Cormorant Garamond",serif;font-size:40px;color:var(--gold2);line-height:1;position:relative}
+.step .n::before{content:"";position:absolute;left:-74px;top:14px;width:12px;height:12px;border-radius:50%;background:var(--ground);border:1px solid var(--gold);box-shadow:0 0 0 0 rgba(216,176,76,0);transition:background .6s,box-shadow .6s}
+.step.in .n::before{background:var(--gold2);box-shadow:0 0 0 7px rgba(216,176,76,.18),0 0 22px rgba(216,176,76,.6)}
+.step h3{font-size:30px;margin-bottom:8px}
+.step p{color:var(--muted);max-width:620px}
+
+/* deliverables */
+.deliver{background:var(--ground2)}
+.deliver .head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:60px}
+
+/* portrait split */
+.split{background:var(--ground)}
+.split .wrap{display:grid;grid-template-columns:1fr 1.1fr;gap:72px;align-items:center}
+.portrait{position:relative;border-radius:24px;overflow:hidden;aspect-ratio:4/5;clip-path:inset(0 100% 0 0 round 24px);transition:clip-path 1.4s cubic-bezier(.2,.7,.2,1)}
+.portrait.in{clip-path:inset(0 0 0 0 round 24px)}
+.portrait img{width:100%;height:100%;object-fit:cover;transform:scale(1.08);transition:transform 1.6s cubic-bezier(.2,.7,.2,1)}
+.portrait.in img{transform:scale(1)}
+.portrait::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 0 1px rgba(216,176,76,.35),inset 0 -120px 120px -60px rgba(23,5,7,.7);border-radius:24px}
+.split h2{margin:22px 0 22px}
+.split ul{list-style:none;padding:0;margin:26px 0 36px;display:grid;gap:12px}
+.split li{display:flex;gap:14px;color:var(--muted)}
+.split li::before{content:"";flex:0 0 8px;height:8px;margin-top:11px;border-radius:50%;background:var(--gold)}
+
+/* pricing */
+.price{background:var(--ground2)}
+.tiers{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin-top:56px}
+.tier{border:1px solid var(--line);border-radius:20px;padding:30px 26px;background:rgba(255,255,255,.02);transition:transform .5s cubic-bezier(.2,.7,.2,1),border-color .5s}
+.tier:hover{transform:translateY(-6px);border-color:var(--line2)}
+.tier.hl{border-color:var(--line2);background:linear-gradient(180deg,rgba(216,176,76,.1),rgba(216,176,76,.02))}
+.tier .t{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:700}
+.tier .v{font-family:"Cormorant Garamond",serif;font-size:40px;margin:14px 0 10px;color:var(--cream)}
+.tier p{color:var(--muted);font-size:14.5px}
+.price-note{margin-top:28px;color:var(--muted);font-size:14px;max-width:760px}
+
+/* faq */
+.faq{background:var(--ground)}
+.faq .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px}
+details{border-top:1px solid var(--line)}
+details:last-of-type{border-bottom:1px solid var(--line)}
+summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:24px 0;font-family:"Cormorant Garamond",serif;font-size:27px;color:var(--cream);transition:color .3s}
+summary::-webkit-details-marker{display:none}
+summary:hover{color:var(--gold2)}
+.plus{flex:0 0 34px;height:34px;border-radius:50%;border:1px solid var(--line2);display:grid;place-items:center;color:var(--gold2);transition:transform .45s cubic-bezier(.2,.7,.2,1),background .3s}
+details[open] .plus{transform:rotate(45deg);background:rgba(216,176,76,.12)}
+.answer{padding:0 0 26px;color:var(--muted);max-width:640px}
+
+/* contact */
+.contact{background:radial-gradient(1200px 600px at 50% 110%,rgba(193,39,45,.22),transparent 60%),var(--ground2);padding-bottom:140px}
+.contact .wrap{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:start}
+.contact h2{margin:22px 0 18px}
+.form{display:grid;gap:16px;padding:34px;border:1px solid var(--line);border-radius:24px;background:rgba(23,5,7,.6);backdrop-filter:blur(10px)}
+.field{display:grid;gap:8px}
+.field label{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);font-weight:700}
+.field input,.field textarea{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:12px;color:var(--cream);padding:14px 16px;font:inherit;font-size:15px;min-height:50px;transition:border-color .3s,box-shadow .3s}
+.field textarea{min-height:130px;resize:vertical}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 4px rgba(216,176,76,.15)}
+.form .btn{justify-self:start;margin-top:8px}
+.form small{color:var(--muted);font-size:12.5px}
+
+/* footer */
+footer{border-top:1px solid rgba(216,176,76,.12);padding:40px 0;color:var(--muted);font-size:13.5px}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+footer a{color:var(--muted);text-decoration:none;margin-left:22px}
+footer a:hover{color:var(--gold2)}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 1s ease,transform 1s cubic-bezier(.2,.7,.2,1);transition-delay:var(--delay,0s)}
+.reveal.in{opacity:1;transform:none}
+
+@keyframes rise{0%{transform:translate(var(--x,0),0) scale(.5);opacity:0}12%{opacity:.95}100%{transform:translate(calc(var(--x,0)*1.7),-520px) scale(1.15);opacity:0}}
+@keyframes wordIn{to{opacity:1;transform:none}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes pulse{0%,100%{box-shadow:0 0 18px rgba(216,176,76,.45)}50%{box-shadow:0 0 34px rgba(216,176,76,.85)}}
+@keyframes scroll{to{transform:translateX(-50%)}}
+@keyframes breathe{from{transform:scale(1)}to{transform:scale(1.07)}}
+@keyframes hint{0%{transform:translateY(0);opacity:1}70%{transform:translateY(14px);opacity:0}100%{opacity:0}}
+
+@media (max-width:980px){
+  .pain-text,.deliver .head,.split .wrap,.faq .wrap,.contact .wrap{grid-template-columns:1fr;gap:36px}
+  .grid3{grid-template-columns:1fr}
+  .tiers{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .nav-links{display:none}
+  section{padding:90px 0}
+  .hero{min-height:760px}
+  .steps{grid-template-columns:40px 1fr;column-gap:16px}
+  .vine{width:40px}
+  .step{grid-template-columns:56px 1fr;gap:16px}
+  .step .n::before{left:-44px}
+}
+@media (max-width:600px){
+  .tiers{grid-template-columns:1fr}
+  .quote{max-width:320px;font-size:20px}
+  .hero-cta .btn{width:100%}
+  .wrap{width:calc(100% - 32px)}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .reveal,.h-word,.hero .eyebrow,.hero .lead,.hero-cta,.hero-note{opacity:1;transform:none}
+  .portrait{clip-path:none}
+}
+</style>
+</head>
+<body>
+<div class="progress" aria-hidden="true"></div>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Zur Startseite"><span class="brand-mark" aria-hidden="true"></span>[Dein Name]</a>
+    <ul class="nav-links">
+      <li><a href="#ablauf">Ablauf</a></li>
+      <li><a href="#leistung">Leistung</a></li>
+      <li><a href="#rahmen">Rahmen</a></li>
+      <li><a href="#fragen">Fragen</a></li>
+    </ul>
+    <a class="btn btn-gold magnet" href="#kontakt">Erstgespräch</a>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-media">
+    <img class="hero-img" src="https://d8j0ntlcm91z4.cloudfront.net/user_3Elh9CRMLHJI8SbM9ck8Sw0XJXX/hf_20261027_113500_a60d0f58-5e1d-4266-9d80-980433c220f5.png" alt="Zwei offene Hände, aus denen ein Spross aus goldenem Licht wächst">
+  </div>
+  <div class="hero-shade" aria-hidden="true"></div>
+  <div class="particles" aria-hidden="true">
+    <span style="--x:-180px;--d:0s;--t:9s;--s:3px"></span><span style="--x:-120px;--d:1.1s;--t:8s;--s:4px"></span><span style="--x:-60px;--d:2.3s;--t:10s;--s:3px"></span><span style="--x:-20px;--d:.6s;--t:7s;--s:5px"></span><span style="--x:20px;--d:3.4s;--t:9s;--s:3px"></span><span style="--x:70px;--d:1.8s;--t:8.5s;--s:4px"></span><span style="--x:130px;--d:4.2s;--t:11s;--s:3px"></span><span style="--x:190px;--d:2.9s;--t:9.5s;--s:4px"></span><span style="--x:-240px;--d:5s;--t:12s;--s:2px"></span><span style="--x:240px;--d:3.9s;--t:10.5s;--s:2px"></span><span style="--x:-90px;--d:6.1s;--t:8s;--s:3px"></span><span style="--x:90px;--d:5.5s;--t:9s;--s:3px"></span><span style="--x:0px;--d:4.6s;--t:7.5s;--s:4px"></span><span style="--x:-150px;--d:7s;--t:10s;--s:3px"></span><span style="--x:160px;--d:6.6s;--t:9s;--s:3px"></span><span style="--x:-40px;--d:7.8s;--t:8s;--s:5px"></span><span style="--x:45px;--d:8.4s;--t:11s;--s:3px"></span><span style="--x:-210px;--d:2s;--t:9s;--s:2px"></span>
+  </div>
+  <div class="wrap">
+    <div class="hero-copy">
+      <p class="eyebrow">Websites für Coaches, Beraterinnen und Begleiter</p>
+      <h1 id="hero-title"><span class="h-word" style="--i:0">Deine</span> <span class="h-word" style="--i:1">Arbeit</span> <span class="h-word" style="--i:2">wirkt.</span><br><span class="h-word" style="--i:3">Deine</span> <span class="h-word" style="--i:4">Website</span> <span class="h-word" style="--i:5">soll</span> <span class="h-word" style="--i:6">es</span> <span class="h-word gold it" style="--i:7">endlich</span> <span class="h-word" style="--i:8">auch.</span></h1>
+      <p class="lead">Ein klarer Auftritt, der deine Haltung trägt, die richtigen Menschen anspricht und dich von der Technik entlastet. Ohne Verkaufsdruck. Ohne Vorlagenklang. Ohne dass du dich verbiegen musst.</p>
+      <div class="hero-cta">
+        <a class="btn btn-gold magnet" href="#kontakt">Kostenloses Erstgespräch
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-ghost magnet" href="#ablauf">So läuft es ab</a>
+      </div>
+      <p class="hero-note">30 Minuten · unverbindlich · keine fertigen Texte nötig</p>
+    </div>
+  </div>
+  <div class="scroll-hint" aria-hidden="true"></div>
+</section>
+
+<section class="pain" aria-labelledby="pain-title">
+  <div class="wrap">
+    <div class="pain-text">
+      <div class="reveal">
+        <p class="eyebrow">Kennst du das?</p>
+        <h2 class="h2" id="pain-title" style="margin-top:22px">Du willst Menschen begleiten. Und musst dich plötzlich um <span class="gold it">all das</span> kümmern.</h2>
+      </div>
+      <p class="lead reveal" style="--delay:.15s">Website, Domain, Hosting, Buchung, Newsletter, Texte, Fotos. Jeder empfiehlt etwas anderes. Und je länger du daran arbeitest, desto weniger erkennst du dich darin wieder.</p>
+    </div>
+  </div>
+  <div class="marquee" aria-label="Gedanken, die viele Begleiterinnen und Begleiter kennen">
+    <div class="track">
+      <div class="quote">„Ich weiß, was ich kann. Aber wie erkläre ich, <em>warum jemand es buchen sollte?</em>“</div>
+      <div class="quote">„Auf meiner Website <em>erkennt man mich nicht.</em>“</div>
+      <div class="quote">„Ich möchte verkaufen, <em>ohne mich dabei zu verbiegen.</em>“</div>
+      <div class="quote">„Seit Monaten arbeite ich daran und bin <em>noch immer nicht startklar.</em>“</div>
+      <div class="quote">„Ich möchte Hilfe, aber nicht wieder <em>die Kontrolle verlieren.</em>“</div>
+      <div class="quote">„Ich bekomme Anfragen, <em>aber sie passen nicht.</em>“</div>
+      <div class="quote">„Ich weiß, was ich kann. Aber wie erkläre ich, <em>warum jemand es buchen sollte?</em>“</div>
+      <div class="quote">„Auf meiner Website <em>erkennt man mich nicht.</em>“</div>
+      <div class="quote">„Ich möchte verkaufen, <em>ohne mich dabei zu verbiegen.</em>“</div>
+      <div class="quote">„Seit Monaten arbeite ich daran und bin <em>noch immer nicht startklar.</em>“</div>
+      <div class="quote">„Ich möchte Hilfe, aber nicht wieder <em>die Kontrolle verlieren.</em>“</div>
+      <div class="quote">„Ich bekomme Anfragen, <em>aber sie passen nicht.</em>“</div>
+    </div>
+  </div>
+  <div class="marquee" aria-hidden="true">
+    <div class="track rev">
+      <div class="quote">„Muss ich eine öffentliche Persönlichkeit werden, <em>damit meine Arbeit gefunden wird?</em>“</div>
+      <div class="quote">„Ich brauche Geld. Aber es fühlt sich falsch an, <em>dafür Geld zu verlangen.</em>“</div>
+      <div class="quote">„Mein Hoster schreibt etwas über PHP. <em>Bin ich betroffen?</em>“</div>
+      <div class="quote">„Ich kann so viel. <em>Wie soll ich mich da auf etwas festlegen?</em>“</div>
+      <div class="quote">„Ich habe es so oft erklärt. Trotzdem versteht niemand, <em>was ich wirklich mache.</em>“</div>
+      <div class="quote">„Für meine angefangene Website finde ich sowieso niemanden, <em>der mir bezahlbar hilft.</em>“</div>
+      <div class="quote">„Muss ich eine öffentliche Persönlichkeit werden, <em>damit meine Arbeit gefunden wird?</em>“</div>
+      <div class="quote">„Ich brauche Geld. Aber es fühlt sich falsch an, <em>dafür Geld zu verlangen.</em>“</div>
+      <div class="quote">„Mein Hoster schreibt etwas über PHP. <em>Bin ich betroffen?</em>“</div>
+      <div class="quote">„Ich kann so viel. <em>Wie soll ich mich da auf etwas festlegen?</em>“</div>
+      <div class="quote">„Ich habe es so oft erklärt. Trotzdem versteht niemand, <em>was ich wirklich mache.</em>“</div>
+      <div class="quote">„Für meine angefangene Website finde ich sowieso niemanden, <em>der mir bezahlbar hilft.</em>“</div>
+    </div>
+  </div>
+  <div class="wrap">
+    <p class="lead reveal" style="margin:60px auto 0;text-align:center">Dahinter steckt selten ein Technikproblem. Meist fehlt eine verständliche Grundlage: Für wen bist du da, womit kommen Menschen zu dir, und wie läuft eine erste Sitzung ab? Genau dort fangen wir an.</p>
+  </div>
+</section>
+
+<section class="principles" aria-labelledby="prin-title">
+  <div class="wrap">
+    <p class="eyebrow reveal">Leitgedanke</p>
+    <h2 class="h2 big-quote reveal" id="prin-title">Entlastung ermöglichen und dabei <span class="gold">deine eigene Stimme</span> und Selbstbestimmung bewahren.</h2>
+    <div class="grid3">
+      <article class="card reveal" style="--delay:0s">
+        <div class="num">01</div>
+        <h3 class="h3">Verstehen vor Gestalten</h3>
+        <p>Bevor ein Wort geschrieben oder ein Pixel gesetzt wird, höre ich zu. Deine Arbeit und deine Haltung sollen verstanden sein. Erst dann entstehen Texte und Design, und zwar so, dass du dich darin wiedererkennst.</p>
+      </article>
+      <article class="card reveal" style="--delay:.12s">
+        <div class="num">02</div>
+        <h3 class="h3">Klarheit über die Leistung</h3>
+        <p>Websitebau, Textarbeit, Angebotsklärung und technische Betreuung haben einen nachvollziehbaren Umfang. Eine Website allein garantiert keine Anfragen. Das sage ich dir so, bevor wir anfangen.</p>
+      </article>
+      <article class="card reveal" style="--delay:.24s">
+        <div class="num">03</div>
+        <h3 class="h3">Deine Konten, deine Kontrolle</h3>
+        <p>Domain, Hosting und Zugänge laufen auf deinen Namen. Nach der Übergabe bist du nicht allein, aber auch nicht abhängig. Kleine Änderungen bleiben klein, auch im Preis.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="process" id="ablauf" aria-labelledby="proc-title">
+  <div class="process-media" aria-hidden="true">
+    <img class="tree-bg" src="https://d8j0ntlcm91z4.cloudfront.net/user_3Elh9CRMLHJI8SbM9ck8Sw0XJXX/hf_20261027_113459_c3b53fdd-2780-4cbc-b50c-c4d8eb43db38.png" alt="" loading="lazy">
+    <div class="process-shade"></div>
+  </div>
+  <div class="wrap">
+    <div class="process-head">
+      <p class="eyebrow reveal">Ablauf</p>
+      <h2 class="h2 reveal" id="proc-title" style="margin-top:22px">Was aus einem <span class="gold it">Gespräch</span> wächst.</h2>
+      <p class="lead reveal" style="margin-top:22px">Sechs Schritte, ein klarer Rahmen, eine veröffentlichbare erste Version. Du musst nichts vorbereiten.</p>
+    </div>
+    <div class="steps">
+      <svg class="vine" viewBox="0 0 80 1000" preserveAspectRatio="none" aria-hidden="true">
+        <path pathLength="1" d="M40 0 C 40 110, 14 150, 40 250 S 68 380, 40 500 S 12 720, 40 830 S 64 950, 40 1000"/>
+      </svg>
+      <article class="step reveal">
+        <div class="n">01</div>
+        <div><h3>Zuhören</h3><p>Ein Gespräch über deine Arbeit, deine Menschen und das, was dir zwischen den Worten wichtig ist. Mit konkreten Rückfragen, nicht mit einem Fragebogen.</p></div>
+      </article>
+      <article class="step reveal">
+        <div class="n">02</div>
+        <div><h3>Bestandsaufnahme</h3><p>Unfertige Texte, ein angefangener Baukasten, alte Fotos: Alles darf mitgebracht werden. Wir schauen gemeinsam, was bleiben kann und was dich bisher aufgehalten hat.</p></div>
+      </article>
+      <article class="step reveal">
+        <div class="n">03</div>
+        <div><h3>Angebot klären</h3><p>Für wen, womit, in welchem Rahmen und zu welchem Preis. Deine Vielfalt bleibt erlaubt. Es gibt nur einen klaren Einstieg, den Besucher sofort verstehen.</p></div>
+      </article>
+      <article class="step reveal">
+        <div class="n">04</div>
+        <div><h3>Texte und Gestaltung</h3><p>In deiner Sprache, mit deiner Wärme, deiner Ruhe oder deiner Direktheit. Spiritualität darf sichtbar sein, ohne beliebige Bilder und ohne Versprechen, die du nicht halten willst.</p></div>
+      </article>
+      <article class="step reveal">
+        <div class="n">05</div>
+        <div><h3>Veröffentlichen</h3><p>Eine fertige erste Version statt einer ewigen Baustelle. Auf dem Handy wie am Schreibtisch, mit Buchung und Kontakt, die zuverlässig bei dir ankommen.</p></div>
+      </article>
+      <article class="step reveal">
+        <div class="n">06</div>
+        <div><h3>Betreuen</h3><p>Updates, Backups, Sicherheit und Erreichbarkeit haben eine klare Zuständigkeit. Du bekommst eine ehrliche Einschätzung, wenn etwas dringend ist, und Ruhe, wenn nicht.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="deliver" id="leistung" aria-labelledby="del-title">
+  <div class="wrap">
+    <div class="head">
+      <div class="reveal">
+        <p class="eyebrow">Leistung</p>
+        <h2 class="h2" id="del-title" style="margin-top:22px">Was du am Ende <span class="gold it">in der Hand</span> hältst.</h2>
+      </div>
+      <p class="lead reveal" style="--delay:.15s">Kein Baukasten, den du allein zu Ende bringen musst. Ein Auftritt, der fertig ist, zu dir passt und die richtigen Anfragen erleichtert.</p>
+    </div>
+    <div class="grid3">
+      <article class="card reveal">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18M8 21h8"/></svg></div>
+        <h3 class="h3">Eine Website, die zu dir passt</h3>
+        <p>Schnell, auf jedem Gerät lesbar, mit klarer Struktur. Ein Startpunkt, der Vielfalt zulässt, ohne Besucher raten zu lassen.</p>
+      </article>
+      <article class="card reveal" style="--delay:.1s">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h16M6 16l10-10 2 2-10 10H6v-2z"/></svg></div>
+        <h3 class="h3">Texte, die nach dir klingen</h3>
+        <p>Keine Vorlagen, keine Begriffe wie Transformation oder Potenzialentfaltung, die nichts erklären. Konkrete Sprache, die den Nutzen zeigt und deine Haltung bewahrt.</p>
+      </article>
+      <article class="card reveal" style="--delay:.2s">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <h3 class="h3">Ein klarer Einstieg für Interessenten</h3>
+        <p>Mit welchen Anliegen Menschen kommen dürfen, wie eine erste Sitzung abläuft und wer bei dir nicht richtig ist. So entstehen Anfragen, die passen.</p>
+      </article>
+      <article class="card reveal" style="--delay:.3s">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18M7 8h7a3 3 0 0 1 0 6H9a3 3 0 0 0 0 6h8"/></svg></div>
+        <h3 class="h3">Preise und Grenzen, die du vertreten kannst</h3>
+        <p>Offen genannte Preise, geregelte Erreichbarkeit, klare Absagen. Du arbeitest zugewandt, ohne dich dabei aufzubrauchen.</p>
+      </article>
+      <article class="card reveal" style="--delay:.4s">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7l8-4z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h3 class="h3">Technik mit Zuständigkeit</h3>
+        <p>Domain, Hosting, E-Mail, Buchung und Bezahlung greifen ineinander. Updates und Backups sind geregelt. Alle Zugänge liegen bei dir.</p>
+      </article>
+      <article class="card reveal" style="--delay:.5s">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12a8 8 0 0 1 16 0v6a2 2 0 0 1-2 2h-2v-6h4M4 12v6a2 2 0 0 0 2 2h2v-6H4"/></svg></div>
+        <h3 class="h3">Ein Ort, auf den du verweisen kannst</h3>
+        <p>Wenn dich jemand empfiehlt, führt der Weg auf eine Seite, die dich zeigt. Ohne tägliche Reels, ohne dein Privatleben als Werbung.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="split" aria-labelledby="split-title">
+  <div class="wrap">
+    <figure class="portrait reveal" style="margin:0">
+      <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3Elh9CRMLHJI8SbM9ck8Sw0XJXX/hf_20261027_113500_0094430c-7ff0-4cbf-a40b-484494104549.png" alt="Eine offene Hand hält einen leuchtenden goldenen Samen, aus dem ein Spross wächst" loading="lazy">
+    </figure>
+    <div>
+      <p class="eyebrow reveal">Anfangen</p>
+      <h2 class="h2 reveal" id="split-title">Du musst nicht fertig sein, um <span class="gold it">anzufangen</span>.</h2>
+      <p class="lead reveal" style="--delay:.1s">Viele kommen mit Texten in fünf Dokumenten, einem Baukasten, der auf dem Handy verrutscht, und dem Gefühl, schon zu viel Zeit investiert zu haben. Das ist kein Scheitern. Das ist Material.</p>
+      <ul class="reveal" style="--delay:.2s">
+        <li>Unfertige Texte und angefangene Seiten dürfen mitgebracht werden.</li>
+        <li>Was gut ist, bleibt. Was dich aufhält, wird benannt.</li>
+        <li>Du erfährst vorher, ob das Problem Design, Technik oder Angebot ist.</li>
+        <li>Ein überschaubarer Weg zur Fertigstellung, kein Neuanfang um jeden Preis.</li>
+      </ul>
+      <a class="btn btn-ghost magnet reveal" href="#kontakt" style="--delay:.3s">Bestandsaufnahme anfragen</a>
+    </div>
+  </div>
+</section>
+
+<section class="price" id="rahmen" aria-labelledby="price-title">
+  <div class="wrap">
+    <p class="eyebrow reveal">Rahmen</p>
+    <h2 class="h2 reveal" id="price-title" style="margin-top:22px;max-width:820px">Ein transparenter Rahmen. Keine <span class="gold it">überraschenden</span> laufenden Kosten.</h2>
+    <div class="tiers">
+      <div class="tier reveal">
+        <div class="t">Erstgespräch</div>
+        <div class="v">Kostenlos</div>
+        <p>30 Minuten. Wir klären, ob es passt und was du wirklich brauchst. Manchmal ist das weniger, als du denkst.</p>
+      </div>
+      <div class="tier reveal" style="--delay:.1s">
+        <div class="t">Bestandsaufnahme</div>
+        <div class="v">[PREIS]</div>
+        <p>Für angefangene Websites und vorhandene Texte: eine ehrliche Einschätzung und ein Weg zur Fertigstellung.</p>
+      </div>
+      <div class="tier hl reveal" style="--delay:.2s">
+        <div class="t">Website</div>
+        <div class="v">ab [PREIS]</div>
+        <p>Angebotsklärung, Texte, Gestaltung, Technik und Veröffentlichung. Ein Festpreis, vorher vereinbart.</p>
+      </div>
+      <div class="tier reveal" style="--delay:.3s">
+        <div class="t">Betreuung</div>
+        <div class="v">[PREIS] / Monat</div>
+        <p>Updates, Backups, Sicherheit, kleine Änderungen. Kündbar. Deine Zugänge bleiben immer bei dir.</p>
+      </div>
+    </div>
+    <p class="price-note reveal">Du bekommst vor dem Start eine schriftliche Übersicht: Was enthalten ist, was nicht, welche laufenden Kosten entstehen (Domain, Hosting, Tools) und wer wofür zuständig ist.</p>
+  </div>
+</section>
+
+<section class="faq" id="fragen" aria-labelledby="faq-title">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="eyebrow">Fragen vor der Anfrage</p>
+      <h2 class="h2" id="faq-title" style="margin-top:22px">Die Fragen, die <span class="gold it">wirklich</span> entscheiden.</h2>
+      <p class="lead" style="margin-top:22px">Wenn deine Frage hier nicht steht, stell sie im Erstgespräch. Du bekommst eine ehrliche Antwort, auch wenn sie lautet: Das brauchst du nicht.</p>
+    </div>
+    <div class="reveal" style="--delay:.15s">
+      <details open>
+        <summary>Muss ich fertige Texte haben?<span class="plus" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M7 1v12M1 7h12"/></svg></span></summary>
+        <div class="answer">Nein. Die Texte entstehen aus Gesprächen mit dir. Was du schon geschrieben hast, nehmen wir als Material. Du musst nichts selbst liefern, um fertig zu werden.</div>
+      </details>
+      <details>
+        <summary>Kann etwas von meiner bisherigen Arbeit bleiben?<span class="plus" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M7 1v12M1 7h12"/></svg></span></summary>
+        <div class="answer">Ja, wenn es gut ist. Die Bestandsaufnahme zeigt, was bleiben kann und was nicht. Niemand will alles neu machen, nur weil es einfacher abzurechnen wäre.</div>
+      </details>
+      <details>
+        <summary>Was kostet es insgesamt?<span class="plus" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M7 1v12M1 7h12"/></svg></span></summary>
+        <div class="answer">Du bekommst vor dem Start einen Festpreis und eine Liste der laufenden Kosten. Keine Überraschungen zwischendurch, keine Rechnung für jede Kleinigkeit.</div>
+      </details>
+      <details>
+        <summary>Wer betreut die Technik?<span class="plus" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M7 1v12M1 7h12"/></svg></span></summary>
+        <div class="answer">Auf Wunsch ich, mit klarer Zuständigkeit für Updates, Backups und Sicherheit. Wenn dein Hoster dir eine technische Warnung schickt, bekommst du eine Einschätzung, wie dringend sie ist. Alle Zugänge laufen auf deinen Namen.</div>
+      </details>
+      <details>
+        <summary>Wirst du verstehen, was mir wichtig ist?<span class="plus" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M7 1v12M1 7h12"/></svg></span></summary>
+        <div class="answer">Das ist der erste Schritt, nicht der letzte. Wir prüfen gemeinsam, ob ich deine Arbeit richtig wiedergebe, bevor etwas veröffentlicht wird. Wörter und Versprechen, die du nicht willst, kommen nicht vor.</div>
+      </details>
+      <details>
+        <summary>Muss ich mich vermarkten oder täglich posten?<span class="plus" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M7 1v12M1 7h12"/></svg></span></summary>
+        <div class="answer">Nein. Die Website ist ein Ort, auf den Empfehlungen führen. Sie klärt Erwartungen und erleichtert passende Anfragen. Was du darüber hinaus tun willst, entscheidest du.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="kontakt" aria-labelledby="contact-title">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow reveal">Erstgespräch</p>
+      <h2 class="h2 reveal" id="contact-title">Lass uns in 30 Minuten herausfinden, ob es <span class="gold it">passt</span>.</h2>
+      <p class="lead reveal" style="--delay:.1s">Kein Verkaufsgespräch. Du erzählst, womit du arbeitest und wo du stehst. Ich sage dir ehrlich, was ich sehe und was ein sinnvoller nächster Schritt wäre. Auch wenn er nicht bei mir liegt.</p>
+      <p class="hero-note reveal" style="opacity:1;animation:none;--delay:.2s;margin-top:28px">Oder schreib direkt an [deine E-Mail-Adresse]</p>
+    </div>
+    <form class="form reveal" action="#" method="post" style="--delay:.15s">
+      <div class="field"><label for="f-name">Dein Name</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
+      <div class="field"><label for="f-mail">Deine E-Mail</label><input id="f-mail" name="email" type="email" autocomplete="email" required></div>
+      <div class="field"><label for="f-work">Womit begleitest du Menschen?</label><textarea id="f-work" name="message" placeholder="Zum Beispiel: Coaching, Yoga, Körperarbeit, spirituelle Begleitung. Und wo deine Website gerade steht."></textarea></div>
+      <button class="btn btn-gold magnet" type="submit">Gesprächstermin anfragen</button>
+      <small>Deine Daten werden nur für die Antwort auf deine Anfrage verwendet. Kein Newsletter, keine Weitergabe.</small>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© [Jahr] [Dein Name] · Websites für Menschen, die begleiten</span>
+    <span><a href="#">Impressum</a><a href="#">Datenschutz</a></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var d=document,w=window,root=d.documentElement;
+  var reduce=w.matchMedia&&w.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+  d.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+  var hero=d.querySelector('.hero');
+  if(hero&&!reduce){hero.addEventListener('mousemove',function(e){var r=hero.getBoundingClientRect();hero.style.setProperty('--mx',((e.clientX-r.left)/r.width-.5)*2);hero.style.setProperty('--my',((e.clientY-r.top)/r.height-.5)*2);});hero.addEventListener('mouseleave',function(){hero.style.setProperty('--mx',0);hero.style.setProperty('--my',0);});}
+  var bar=d.querySelector('.progress'),vine=d.querySelector('.vine path'),steps=d.querySelector('.steps');
+  function onScroll(){
+    var h=root.scrollHeight-w.innerHeight;if(bar)bar.style.width=(h>0?Math.min(100,(w.scrollY/h)*100):0)+'%';
+    if(vine&&steps){var r=steps.getBoundingClientRect();var p=(w.innerHeight*0.75-r.top)/r.height;p=Math.max(0,Math.min(1,p));vine.style.strokeDashoffset=1-p;}
+  }
+  w.addEventListener('scroll',onScroll,{passive:true});w.addEventListener('resize',onScroll);onScroll();
+  if(!reduce){d.querySelectorAll('.magnet').forEach(function(b){b.addEventListener('mousemove',function(e){var r=b.getBoundingClientRect();b.style.transform='translate('+((e.clientX-r.left-r.width/2)*.22)+'px,'+((e.clientY-r.top-r.height/2)*.28)+'px)';});b.addEventListener('mouseleave',function(){b.style.transform='';});});
+    d.querySelectorAll('.card').forEach(function(c){c.addEventListener('mousemove',function(e){var r=c.getBoundingClientRect();c.style.setProperty('--cx',((e.clientX-r.left)/r.width*100)+'%');c.style.setProperty('--cy',((e.clientY-r.top)/r.height*100)+'%');});});}
+})();
+</script>
+</body>
+</html>
