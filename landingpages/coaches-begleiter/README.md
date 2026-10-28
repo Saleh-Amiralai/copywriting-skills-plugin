@@ -51,4 +51,4 @@ Alle Dateien liegen lokal unter `assets/`:
 
 ## Platzhalter
 
-`[Jahr]`, `[deine E-Mail-Adresse]` sowie die Links zu Impressum und Datenschutz müssen ersetzt werden. Das Formular hat noch kein Ziel (`action="#"`).
+`[deine E-Mail-Adresse]` sowie die Links zu Impressum und Datenschutz müssen ersetzt werden. Das Formular hat noch kein Ziel (`action="#"`).
