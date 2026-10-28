@@ -161,6 +161,7 @@ section{position:relative;padding:120px 0}
 /* offer */
 .offer-panel{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:start;border-color:var(--line2);background:linear-gradient(180deg,rgba(216,176,76,.14),var(--glass2))}
 .offer-price{font-family:"Cormorant Garamond",serif;font-size:clamp(52px,6.4vw,88px);line-height:1;color:var(--cream);margin:22px 0 16px}
+.offer-vat{display:block;font-family:Manrope,system-ui,sans-serif;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:10px}
 .offer-main .lead{margin-bottom:32px}
 .offer-h{font-family:Manrope,system-ui,sans-serif;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:700;margin:0 0 6px}
 .offer-list ul{list-style:none;margin:0 0 30px;padding:0}
@@ -502,7 +503,7 @@ footer a:hover{color:var(--gold2)}
       <div class="offer-main">
         <p class="eyebrow">Angebot</p>
         <h2 class="h2" id="offer-title" style="margin-top:22px">Paketpreis <span class="gold it">Starter</span></h2>
-        <div class="offer-price">[PREIS]</div>
+        <div class="offer-price">222 €<span class="offer-vat">inkl. MwSt.</span></div>
         <p class="lead">Alles, was du brauchst, um online zu sein: fertig eingerichtet, auf deinen Namen.</p>
         <a class="btn btn-gold magnet" href="#kontakt">Jetzt buchen
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
@@ -564,9 +565,9 @@ footer a:hover{color:var(--gold2)}
 <section class="contact" id="kontakt" aria-labelledby="contact-title">
   <div class="wrap">
     <div class="panel reveal">
-      <p class="eyebrow">Erstgespräch</p>
-      <h2 class="h2" id="contact-title">Lass uns in 30 Minuten herausfinden, ob es <span class="gold it">passt</span>.</h2>
-      <p class="lead">Kein Verkaufsgespräch. Du erzählst, womit du arbeitest und wo du stehst. Ich sage dir ehrlich, was ich sehe und was ein sinnvoller nächster Schritt wäre. Auch wenn er nicht bei mir liegt.</p>
+      <p class="eyebrow">Buchung</p>
+      <h2 class="h2" id="contact-title">Dein Starter-Paket. <span class="gold it">Jetzt buchen</span>.</h2>
+      <p class="lead">Trag dich ein und sag kurz, womit du Menschen begleitest. Du bekommst innerhalb eines Werktags eine Antwort, und wir legen gemeinsam Tag 0 fest.</p>
       <p style="margin-top:28px;font-size:13px;color:var(--muted);letter-spacing:.04em">Oder schreib direkt an [deine E-Mail-Adresse]</p>
     </div>
     <form class="form reveal" action="#" method="post" style="--delay:.15s">
