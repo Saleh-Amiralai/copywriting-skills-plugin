@@ -121,6 +121,23 @@ section{position:relative;padding:120px 0}
 .step h3{font-size:30px;margin-bottom:8px}
 .step p{color:var(--muted);max-width:620px}
 
+/* timeline overview */
+.howit-title{font-size:clamp(40px,5.4vw,72px);line-height:1;margin:0 0 22px}
+.howit-title .caps{font-family:Manrope,system-ui,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:-.03em}
+.howit-title .it{font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:500;color:var(--gold2)}
+.howit-head{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:end;margin-bottom:40px}
+.more{font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--cream);text-decoration:none;display:inline-flex;gap:10px;align-items:center;white-space:nowrap;padding-bottom:6px;transition:color .3s}
+.more:hover{color:var(--gold2)}
+.more svg{width:16px;height:16px;transition:transform .3s}
+.more:hover svg{transform:translateX(4px)}
+.howit-steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border-top:1px solid var(--line2)}
+.howit-steps li{padding:28px 24px 10px 24px;border-left:1px solid var(--line)}
+.howit-steps li:first-child{border-left:0;padding-left:0}
+.hn{display:block;font-family:"Cormorant Garamond",serif;font-style:italic;font-size:56px;line-height:1;color:var(--gold2)}
+.howit-steps h3{font-family:Manrope,system-ui,sans-serif;font-weight:700;font-size:20px;margin:22px 0 8px;line-height:1.2}
+.hd{display:block;font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:14px}
+.howit-steps p{color:var(--muted);font-size:15px}
+
 /* deliverables */
 .deliver .head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end}
 
@@ -198,6 +215,10 @@ footer a:hover{color:var(--gold2)}
   .step{grid-template-columns:56px 1fr;gap:16px;padding:22px 20px}
   .step .n::before{left:-66px}
   .outro{min-height:460px}
+  .howit-head{grid-template-columns:1fr}
+  .howit-steps{grid-template-columns:1fr 1fr}
+  .howit-steps li{border-left:0;padding:22px 0 8px}
+  .howit-steps li:nth-child(n+3){border-top:1px solid var(--line)}
 }
 @media (max-width:600px){
   .tiers{grid-template-columns:1fr}
@@ -205,6 +226,8 @@ footer a:hover{color:var(--gold2)}
   .hero-cta .btn{width:100%}
   .wrap{width:calc(100% - 32px)}
   .faq-list{padding:6px 20px}
+  .howit-steps{grid-template-columns:1fr}
+  .howit-steps li:nth-child(n+2){border-top:1px solid var(--line)}
 }
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
@@ -308,6 +331,28 @@ footer a:hover{color:var(--gold2)}
   <div class="wrap">
     <div class="panel reveal" style="margin:60px auto 0;max-width:820px;text-align:center">
       <p class="lead" style="margin:0 auto;max-width:none">Dahinter steckt selten ein Technikproblem. Meist fehlt eine verständliche Grundlage: Für wen bist du da, womit kommen Menschen zu dir, und wie läuft eine erste Sitzung ab? Genau dort fangen wir an.</p>
+    </div>
+  </div>
+</section>
+
+<section class="howit" id="zeitplan" aria-labelledby="howit-title">
+  <div class="wrap">
+    <div class="panel reveal">
+      <div class="howit-head">
+        <div>
+          <h2 class="howit-title" id="howit-title"><span class="caps">So läuft</span> <span class="it">es ab</span></h2>
+          <p class="lead">Fünf Schritte, bei jedem Auftrag gleich. Du weißt immer, was diese Woche passiert und was ich von dir brauche.</p>
+        </div>
+        <a class="more" href="#ablauf">Der gesamte Prozess
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <ol class="howit-steps">
+        <li class="reveal" style="--delay:0s"><span class="hn">01</span><h3>Gespräch</h3><span class="hd">Tag 0</span><p>Dreißig Minuten über das, was du machst, für wen und bis wann es stehen soll.</p></li>
+        <li class="reveal" style="--delay:.08s"><span class="hn">02</span><h3>Rahmen</h3><span class="hd">Tag 1</span><p>Eine Seite mit Umfang, Terminen und Festpreis, unterschrieben, bevor etwas gestaltet wird.</p></li>
+        <li class="reveal" style="--delay:.16s"><span class="hn">03</span><h3>Texte und Gestaltung</h3><span class="hd">Tag 2 bis 6</span><p>Der Entwurf wächst sichtbar unter einem Link, Rückmeldung an festen Tagen.</p></li>
+        <li class="reveal" style="--delay:.24s"><span class="hn">04</span><h3>Umsetzung</h3><span class="hd">Tag 7 bis 9</span><p>Die Website wird gebaut, mit Buchung und Kontakt, die zuverlässig bei dir ankommen.</p></li>
+        <li class="reveal" style="--delay:.32s"><span class="hn">05</span><h3>Übergabe</h3><span class="hd">Tag 10</span><p>Ein aufgezeichneter Rundgang, alle Zugänge auf deinen Namen und dreißig Tage Korrekturen.</p></li>
+      </ol>
     </div>
   </div>
 </section>
