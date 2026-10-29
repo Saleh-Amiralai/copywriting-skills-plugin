@@ -51,4 +51,6 @@ Alle Dateien liegen lokal unter `assets/`:
 
 ## Platzhalter
 
-`[deine E-Mail-Adresse]` sowie die Links zu Impressum und Datenschutz müssen ersetzt werden. Das Formular hat noch kein Ziel (`action="#"`).
+Die Links zu Impressum und Datenschutz müssen noch ersetzt werden.
+
+Das Kontaktformular sendet über [Web3Forms](https://web3forms.com) an team@rise-design.de (Versand per `fetch`, Erfolgs- und Fehlermeldung direkt im Formular, Honeypot-Feld `botcheck` als Spamschutz). Dafür muss im versteckten Feld `access_key` der Platzhalter `WEB3FORMS_ACCESS_KEY` durch den echten Zugangsschlüssel ersetzt werden.
