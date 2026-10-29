@@ -152,6 +152,13 @@ section{position:relative;padding:120px 0}
 .offer-list li svg{flex:0 0 22px;width:22px;height:22px;padding:4px;border-radius:50%;color:#2a0a0e;background:linear-gradient(135deg,var(--gold2),var(--gold))}
 .offer-list .bonus li{border-bottom:0;font-weight:600}
 .offer-list .bonus li svg{background:none;border:1px solid var(--line2);color:var(--gold2)}
+.offer-list li{align-items:flex-start}
+.offer-list li svg{margin-top:2px}
+.offer-list li strong{display:block;font-weight:600}
+.offer-list li span{display:block;color:var(--muted);font-size:14.5px;line-height:1.5;margin-top:3px}
+.offer-list .bonus{margin-bottom:22px}
+.offer-more{color:var(--muted);font-size:15px;line-height:1.6;margin:0;padding-top:18px;border-top:1px solid var(--line)}
+.offer-more strong{display:block;color:var(--cream);margin-bottom:4px}
 
 /* faq */
 .faq .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px;align-items:start}
@@ -451,25 +458,25 @@ footer a:hover{color:var(--gold2)}
     <div class="panel offer-panel reveal">
       <div class="offer-main">
         <p class="eyebrow">Angebot</p>
-        <h2 class="h2" id="offer-title" style="margin-top:22px">Paketpreis <span class="gold it">Starter</span></h2>
+        <h2 class="h2" id="offer-title" style="margin-top:22px">Dein Start mit einer Website, die <span class="gold it">zu dir passt</span></h2>
         <div class="offer-price">222 €<span class="offer-vat">inkl. MwSt.</span></div>
-        <p class="lead">Alles, was du brauchst, um online zu sein: fertig eingerichtet, auf deinen Namen.</p>
-        <a class="btn btn-gold magnet" href="#kontakt">Jetzt buchen
+        <p class="lead">Alles was du brauchst um online zu gehen. Deine Arbeit wird sichtbar, dein Angebot verständlich und der Weg zu dir ganz einfach – fertig eingerichtet, damit du loslegen kannst.</p>
+        <a class="btn btn-gold magnet" href="#kontakt">Jetzt Website-Paket wählen
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
       <div class="offer-list">
-        <h3 class="offer-h">Enthalten</h3>
+        <h3 class="offer-h">Das ist enthalten</h3>
         <ul>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Webpage</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Kontaktfeld</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Impressum</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Datenschutz</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>QR-Code zum Teilen</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><div><strong>Deine Website als Onepager</strong><span>Alle wichtigen Inhalte auf einer Seite – klar aufgebaut, damit Interessierte dich und deine Arbeit kennenlernen können.</span></div></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><div><strong>Kontaktformular für direkte Anfragen</strong><span>Damit Menschen unkompliziert den nächsten Schritt zu dir machen können.</span></div></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><div><strong>Impressum &amp; Datenschutz</strong><span>Als eigene Seiten in deine Website eingebunden.</span></div></li>
         </ul>
-        <h3 class="offer-h">Bonus</h3>
+        <h3 class="offer-h">Deine kostenfreien Extras</h3>
         <ul class="bonus">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>Domain-Hosting (1 Jahr)</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><div><strong>Hosting für ein ganzes Jahr</strong><span>Im ersten Jahr übernehmen wir die Hostingkosten deiner Website.</span></div></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><div><strong>Dein QR-Code zum Teilen</strong><span>Für Visitenkarten, Flyer oder zum direkten Zeigen – einmal scannen und deine Website entdecken.</span></div></li>
         </ul>
+        <p class="offer-more"><strong>Du möchtest mehr?</strong>Ergänze dein Paket um die Leistungen, die du brauchst. Deinen Gesamtpreis siehst du vor der Buchung.</p>
       </div>
     </div>
   </div>
