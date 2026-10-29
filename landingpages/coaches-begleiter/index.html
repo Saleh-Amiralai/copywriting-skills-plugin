@@ -558,6 +558,7 @@ footer a:hover{color:var(--gold2)}
       <input type="hidden" name="access_key" value="572cd398-d739-4d7b-85da-627ec81390ef">
       <input type="hidden" name="subject" value="Neue Anfrage über rise-design.de">
       <input type="hidden" name="from_name" value="Rise-Design Website">
+      <input type="hidden" name="redirect" value="https://rise-design.de/?gesendet=1#kontakt">
       <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
       <div class="field"><label for="f-name">Dein Name</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
       <div class="field"><label for="f-mail">Deine E-Mail</label><input id="f-mail" name="email" type="email" autocomplete="email" required></div>
@@ -619,19 +620,23 @@ footer a:hover{color:var(--gold2)}
   var form=d.querySelector('.form');
   if(form&&w.fetch&&w.FormData){
     var status=form.querySelector('.form-status'),sbtn=form.querySelector('button[type=submit]');
+    var THANKS='Danke! Deine Anfrage ist angekommen. Du bekommst innerhalb eines Werktags eine Antwort von uns.';
     form.addEventListener('submit',function(e){
       e.preventDefault();
       if(!form.checkValidity()){form.reportValidity();return;}
       var label=sbtn.textContent;sbtn.disabled=true;sbtn.textContent='Wird gesendet …';status.className='form-status';status.textContent='';
       fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}})
-        .then(function(r){return r.json().then(function(j){return r.ok&&j&&j.success;});})
+        .then(function(r){return r.json().then(function(j){return r.ok&&j&&j.success;},function(){return false;});})
         .then(function(ok){
-          if(!ok)throw new Error('send failed');
-          form.reset();status.classList.add('ok');status.textContent='Danke! Deine Anfrage ist angekommen. Du bekommst innerhalb eines Werktags eine Antwort von uns.';
-        })
-        .catch(function(){status.classList.add('err');status.textContent='Das hat leider nicht geklappt. Bitte versuch es noch einmal oder schreib direkt an team@rise-design.de.';})
-        .then(function(){sbtn.disabled=false;sbtn.textContent=label;});
+          if(ok){form.reset();status.classList.add('ok');status.textContent=THANKS;}
+          else{status.classList.add('err');status.textContent='Das hat leider nicht geklappt. Bitte versuch es noch einmal oder schreib direkt an team@rise-design.de.';}
+          sbtn.disabled=false;sbtn.textContent=label;
+        },function(){form.submit();});
     });
+    if(/[?&]gesendet=1(&|$)/.test(w.location.search)){
+      status.classList.add('ok');status.textContent=THANKS;
+      try{w.history.replaceState(null,'',w.location.pathname+'#kontakt');}catch(err){}
+    }
   }
   if(!reduce){d.querySelectorAll('.magnet').forEach(function(b){b.addEventListener('mousemove',function(e){var r=b.getBoundingClientRect();b.style.transform='translate('+((e.clientX-r.left-r.width/2)*.22)+'px,'+((e.clientY-r.top-r.height/2)*.28)+'px)';});b.addEventListener('mouseleave',function(){b.style.transform='';});});
     d.querySelectorAll('.card').forEach(function(c){c.addEventListener('mousemove',function(e){var r=c.getBoundingClientRect();c.style.setProperty('--cx',((e.clientX-r.left)/r.width*100)+'%');c.style.setProperty('--cy',((e.clientY-r.top)/r.height*100)+'%');});});}
